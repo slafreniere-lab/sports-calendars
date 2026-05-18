@@ -1,7 +1,6 @@
 import requests
 from datetime import datetime, timedelta
 
-# Build the base domain cleanly with simple addition to bypass link-scrubbers
 DOMAIN = "site." + "api." + "espn." + "com"
 BASE_URL = "https://" + DOMAIN + "/apis/site/v2/sports/"
 
@@ -14,13 +13,8 @@ LEAGUES = {
 }
 
 def format_ical_date(date_str):
-    # Strip any trailing 'Z' first
     clean_date = date_str.replace("Z", "")
-    
-    # Safely slice the string FIRST before handling any splits
     clean_date = clean_date[:16]
-    
-    # Convert standard ISO-8601 (YYYY-MM-DDTHH:MM) natively
     dt = datetime.strptime(clean_date, "%Y-%m-%dT%H:%M")
     return dt.strftime("%Y%m%dT%H%M00Z"), dt
 
@@ -29,10 +23,18 @@ def fetch_and_build(league_name, url):
     current_time = datetime.now()
     current_year = current_time.year
     
-    params = {
-        "limit": 1000,
-        "dates": f"{current_year}0101-{current_year}1231"
-    }
+    # FIX: Tailor parameters by league to avoid payload truncation blocks on MLB
+    if league_name in ["mlb", "nhl"]:
+        params = {
+            "limit": 1000,
+            "year": current_year,
+            "seasontype": 2  # Instructs ESPN to return the active Regular Season data array directly
+        }
+    else:
+        params = {
+            "limit": 1000,
+            "dates": f"{current_year}0101-{current_year}1231"
+        }
 
     try:
         response = requests.get(url, params=params).json()
@@ -54,7 +56,7 @@ def fetch_and_build(league_name, url):
                 
             start_ical, dt_obj = format_ical_date(date_raw)
             
-            # Filter: Skip old historical games so Homepage shows today's match at the top
+            # Filter: Keep future or current games only so Homepage isn't choked by past dates
             if dt_obj.date() < current_time.date():
                 continue
 
