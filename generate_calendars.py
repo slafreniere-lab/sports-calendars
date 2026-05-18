@@ -1,4 +1,5 @@
 import requests
+import os
 from datetime import datetime, timedelta
 
 DOMAIN = "site." + "api." + "espn." + "com"
@@ -104,7 +105,7 @@ def fetch_and_build(league_name, url):
         "END:VCALENDAR"
     )
     
-    with open(f"{league_name}.ics", "w", encoding="utf-8") as f:
+    with open(os.path.join(".", f"{league_name}.ics"), "w", encoding="utf-8") as f:
         f.write(calendar_content)
     print(f"Successfully compiled {len(ical_events)} upcoming entries for {league_name.upper()}.")
 
