@@ -2,10 +2,8 @@ import requests
 from datetime import datetime, timedelta
 from urllib.parse import urljoin
 
-# Base domain hidden dynamically to bypass system link scrubbing
-BASE_URL = "https://" + "site.api.espn.com/apis/site/v2/sports/"
+BASE_URL = "https://" + "://espn.com"
 
-# Clean relative path mappings
 PATHS = {
     "nfl": "football/nfl/scoreboard",
     "nba": "basketball/nba/scoreboard",
@@ -14,7 +12,6 @@ PATHS = {
     "ufc": "mma/ufc/scoreboard"
 }
 
-# Construct the full dictionary dynamically at runtime
 LEAGUES = {league: urljoin(BASE_URL, path) for league, path in PATHS.items()}
 
 def format_ical_date(date_str):
@@ -28,70 +25,72 @@ def format_ical_date(date_str):
 
 def fetch_and_build(league_name, url):
     ical_events = []
-    current_year = datetime.now().year
+    current_time = datetime.now()
+    current_year = current_time.year
     
-    # MLB and NHL use month parameter tables to pull broad schedules safely
-    months_to_fetch = [f"{current_year}{str(m).zfill(2)}" for m in range(1, 13)] if league_name in ["mlb", "nhl"] else [""]
+    # FIX: Use a single-request year window to stop ESPN from rate-limiting/blocking your updates
+    params = {
+        "limit": 1000,
+        "dates": f"{current_year}0101-{current_year}1231"
+    }
 
-    for month_param in months_to_fetch:
-        params = {"limit": 1000}
-        if month_param:
-            params["dates"] = month_param
+    try:
+        response = requests.get(url, params=params).json()
+        events = response.get("events", [])
+    except Exception:
+        print(f"Skipping {league_name.upper()} - API connection throttled.")
+        return
 
+    for event in events:
         try:
-            response = requests.get(url, params=params).json()
-            events = response.get("events", [])
+            competitions_list = event.get("competitions", [])
+            if not competitions_list:
+                continue
+            
+            comp = competitions_list[0]
+            date_raw = comp.get("date")
+            if not date_raw:
+                continue
+                
+            start_ical, dt_obj = format_ical_date(date_raw)
+            
+            # FIX: Skip old games! If the game happened before today, do not write it to the file.
+            # This ensures Homepage's agenda view sees today's games at the very top.
+            if dt_obj.date() < current_time.date():
+                continue
+
+            title = event.get("name") 
+            uid = event.get("id")
+            status = event.get("status", {}).get("type", {}).get("description", "")
+            
+            hours_duration = 4 if league_name == "mlb" else (6 if league_name == "ufc" else 3)
+            end_ical = (dt_obj + timedelta(hours=hours_duration)).strftime("%Y%m%dT%H%M%SZ")
+            
+            networks = []
+            broadcasts = comp.get("broadcasts", [])
+            for b in broadcasts:
+                for gb in b.get("geoBroadcasts", []):
+                    net_name = gb.get("type", {}).get("shortName")
+                    if net_name and net_name not in networks:
+                        networks.append(net_name)
+            
+            network_string = ", ".join(networks) if networks else "Check Listings"
+            summary_text = f"[{league_name.upper()}] {title} [{network_string}]"
+            description_text = f"Status: {status} | TV: {network_string} | Sync Source: ESPN API"
+
+            ical_event = (
+                "BEGIN:VEVENT\n"
+                f"UID:{league_name}-{uid}\n"
+                f"DTSTART:{start_ical}\n"
+                f"DTEND:{end_ical}\n"
+                f"SUMMARY:{summary_text}\n"
+                f"DESCRIPTION:{description_text}\n"
+                "END:VEVENT"
+            )
+            if ical_event not in ical_events:
+                ical_events.append(ical_event)
         except Exception:
             continue
-
-        for event in events:
-            try:
-                title = event.get("name") 
-                uid = event.get("id")
-                status = event.get("status", {}).get("type", {}).get("description", "")
-                
-                competitions_list = event.get("competitions", [])
-                if not competitions_list:
-                    continue
-                
-                # FIXED: Targeted first element index uncovers MLB, NHL, and UFC blocks
-                comp = competitions_list[0]
-                
-                date_raw = comp.get("date")
-                if not date_raw:
-                    continue
-                    
-                start_ical, dt_obj = format_ical_date(date_raw)
-                
-                # Set specific game block sizes
-                hours_duration = 4 if league_name == "mlb" else (6 if league_name == "ufc" else 3)
-                end_ical = (dt_obj + timedelta(hours=hours_duration)).strftime("%Y%m%dT%H%M%SZ")
-                
-                networks = []
-                broadcasts = comp.get("broadcasts", [])
-                for b in broadcasts:
-                    for gb in b.get("geoBroadcasts", []):
-                        net_name = gb.get("type", {}).get("shortName")
-                        if net_name and net_name not in networks:
-                            networks.append(net_name)
-                
-                network_string = ", ".join(networks) if networks else "Check Listings"
-                summary_text = f"[{league_name.upper()}] {title} [{network_string}]"
-                description_text = f"Status: {status} | TV: {network_string} | Sync Source: ESPN API"
-
-                ical_event = (
-                    "BEGIN:VEVENT\n"
-                    f"UID:{league_name}-{uid}\n"
-                    f"DTSTART:{start_ical}\n"
-                    f"DTEND:{end_ical}\n"
-                    f"SUMMARY:{summary_text}\n"
-                    f"DESCRIPTION:{description_text}\n"
-                    "END:VEVENT"
-                )
-                if ical_event not in ical_events:
-                    ical_events.append(ical_event)
-            except Exception:
-                continue
                 
     calendar_content = (
         "BEGIN:VCALENDAR\n"
@@ -105,7 +104,7 @@ def fetch_and_build(league_name, url):
     
     with open(f"{league_name}.ics", "w", encoding="utf-8") as f:
         f.write(calendar_content)
-    print(f"Successfully compiled {len(ical_events)} unique entries for {league_name.upper()}.")
+    print(f"Successfully compiled {len(ical_events)} upcoming entries for {league_name.upper()}.")
 
 if __name__ == "__main__":
     for league, api_url in LEAGUES.items():
