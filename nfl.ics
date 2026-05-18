@@ -1,0 +1,118 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CustomSportsCal//NFL//EN
+X-WR-CALNAME:NFL Full League
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+BEGIN:VEVENT
+UID:nfl-401872656
+DTSTART:20260910T002000Z
+DTEND:20260910T032000Z
+SUMMARY:[NFL] New England Patriots at Seattle Seahawks [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872657
+DTSTART:20260911T003500Z
+DTEND:20260911T033500Z
+SUMMARY:[NFL] San Francisco 49ers at Los Angeles Rams [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872925
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:[NFL] Tampa Bay Buccaneers at Cincinnati Bengals [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872923
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:[NFL] New Orleans Saints at Detroit Lions [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872924
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:[NFL] New York Jets at Tennessee Titans [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872659
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:[NFL] Baltimore Ravens at Indianapolis Colts [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872658
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:[NFL] Atlanta Falcons at Pittsburgh Steelers [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872661
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:[NFL] Chicago Bears at Carolina Panthers [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872922
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:[NFL] Cleveland Browns at Jacksonville Jaguars [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872660
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:[NFL] Buffalo Bills at Houston Texans [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872928
+DTSTART:20260913T202500Z
+DTEND:20260913T232500Z
+SUMMARY:[NFL] Miami Dolphins at Las Vegas Raiders [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872927
+DTSTART:20260913T202500Z
+DTEND:20260913T232500Z
+SUMMARY:[NFL] Green Bay Packers at Minnesota Vikings [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872929
+DTSTART:20260913T202500Z
+DTEND:20260913T232500Z
+SUMMARY:[NFL] Washington Commanders at Philadelphia Eagles [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872926
+DTSTART:20260913T202500Z
+DTEND:20260913T232500Z
+SUMMARY:[NFL] Arizona Cardinals at Los Angeles Chargers [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872930
+DTSTART:20260914T002000Z
+DTEND:20260914T032000Z
+SUMMARY:[NFL] Dallas Cowboys at New York Giants [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-401872931
+DTSTART:20260915T001500Z
+DTEND:20260915T031500Z
+SUMMARY:[NFL] Denver Broncos at Kansas City Chiefs [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+END:VCALENDAR
