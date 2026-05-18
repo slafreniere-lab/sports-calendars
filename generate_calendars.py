@@ -23,9 +23,11 @@ def fetch_and_build(league_name, url):
     current_time = datetime.now()
     current_year = current_time.year
     
-    # DEFINITIVE FIX: Loop through both Regular Season (2) and Postseason/Playoffs (3)
-    # This guarantees we catch active NBA/NHL playoff brackets and upcoming NFL slates
-    season_types = [2, 3] if league_name in ["nfl", "nba", "mlb", "nhl"] else [2]
+    # Define clean, explicit arrays by sport type
+    if league_name in ["nfl", "nba", "mlb", "nhl"]:
+        season_types = [2, 3]
+    else:
+        season_types = [1] # UFC/MMA baseline
 
     for s_type in season_types:
         params = {
@@ -34,7 +36,6 @@ def fetch_and_build(league_name, url):
             "seasontype": s_type
         }
         
-        # UFC handles ongoing events using a rolling date query block instead of structured seasons
         if league_name == "ufc":
             params = {
                 "limit": 1000,
@@ -60,7 +61,7 @@ def fetch_and_build(league_name, url):
                     
                 start_ical, dt_obj = format_ical_date(date_raw)
                 
-                # Filter: Skip old historical games so Homepage shows today's match at the top
+                # Filter: Keep future or current games only
                 if dt_obj.date() < current_time.date():
                     continue
 
@@ -97,10 +98,8 @@ def fetch_and_build(league_name, url):
             except Exception:
                 continue
                 
-        # If we are handling UFC, break the inner season loop early
-        if league_name == "ufc":
-            break
-                
+    # DEFINITIVE FIX: File writing is now completely outside the loop.
+    # It will safely write the accumulated games for ALL season types at once.
     calendar_content = (
         "BEGIN:VCALENDAR\n"
         "VERSION:2.0\n"
@@ -113,7 +112,7 @@ def fetch_and_build(league_name, url):
     
     with open(f"{league_name}.ics", "w", encoding="utf-8") as f:
         f.write(calendar_content)
-    print(f"Successfully compiled {len(ical_events)} upcoming entries for {league_name.upper()}.")
+    print(f"Successfully compiled {len(ical_events)} unique entries for {league_name.upper()}.")
 
 if __name__ == "__main__":
     for league, api_url in LEAGUES.items():
