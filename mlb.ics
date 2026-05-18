@@ -29,7 +29,7 @@ UID:mlb-401815393
 DTSTART:20260518T224000Z
 DTEND:20260519T024000Z
 SUMMARY:[MLB] Cleveland Guardians at Detroit Tigers [Check Listings]
-DESCRIPTION:Status: In Progress | TV: Check Listings | Sync Source: ESPN API
+DESCRIPTION:Status: Delayed | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
 UID:mlb-401815394
@@ -100,5 +100,12 @@ DTSTART:20260519T014000Z
 DTEND:20260519T054000Z
 SUMMARY:[MLB] San Francisco Giants at Arizona Diamondbacks [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401815393
+DTSTART:20260518T224000Z
+DTEND:20260519T024000Z
+SUMMARY:[MLB] Cleveland Guardians at Detroit Tigers [Check Listings]
+DESCRIPTION:Status: In Progress | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 END:VCALENDAR
