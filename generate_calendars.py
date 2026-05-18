@@ -13,9 +13,10 @@ LEAGUES = {
 }
 
 def format_ical_date(date_str):
-    clean_date = date_str.replace("Z", "")
-    clean_date = clean_date[:16]
-    dt = datetime.strptime(clean_date, "%Y-%m-%dT%H:%M")
+    # DEFINITIVE FIX: Use fromisoformat to automatically handle shifting string lengths
+    # This prevents the text slice from causing cross-sport syntax crashes.
+    standard_iso = date_str.replace("Z", "+00:00")
+    dt = datetime.fromisoformat(standard_iso)
     return dt.strftime("%Y%m%dT%H%M00Z"), dt
 
 def fetch_and_build(league_name, url):
@@ -23,11 +24,10 @@ def fetch_and_build(league_name, url):
     current_time = datetime.now()
     current_year = current_time.year
     
-    # Define clean, explicit arrays by sport type
     if league_name in ["nfl", "nba", "mlb", "nhl"]:
         season_types = [2, 3]
     else:
-        season_types = [1] # UFC/MMA baseline
+        season_types = [1] # UFC Baseline
 
     for s_type in season_types:
         params = {
@@ -95,11 +95,13 @@ def fetch_and_build(league_name, url):
                 )
                 if ical_event not in ical_events:
                     ical_events.append(ical_event)
-            except Exception:
+            except Exception as e:
+                print(f"Skipped bad row inside event loop: {e}")
                 continue
                 
-    # DEFINITIVE FIX: File writing is now completely outside the loop.
-    # It will safely write the accumulated games for ALL season types at once.
+        if league_name == "ufc":
+            break
+                
     calendar_content = (
         "BEGIN:VCALENDAR\n"
         "VERSION:2.0\n"
