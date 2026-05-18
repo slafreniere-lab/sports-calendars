@@ -1,41 +1,28 @@
-import requests
-from datetime import datetime, timedelta
-
-DOMAIN = "site." + "api." + "espn." + "com"
-BASE_URL = "https://" + DOMAIN + "/apis/site/v2/sports/"
-
-LEAGUES = {
-    "nfl": BASE_URL + "football/nfl/scoreboard",
-    "nba": BASE_URL + "basketball/nba/scoreboard",
-    "mlb": BASE_URL + "baseball/mlb/scoreboard",
-    "nhl": BASE_URL + "hockey/nhl/scoreboard",
-    "ufc": BASE_URL + "mma/ufc/scoreboard"
-}
-
-def format_ical_date(date_str):
-    # DEFINITIVE FIX: Use fromisoformat to automatically handle shifting string lengths
-    # This prevents the text slice from causing cross-sport syntax crashes.
-    standard_iso = date_str.replace("Z", "+00:00")
-    dt = datetime.fromisoformat(standard_iso)
-    return dt.strftime("%Y%m%dT%H%M00Z"), dt
-
 def fetch_and_build(league_name, url):
     ical_events = []
     current_time = datetime.now()
     current_year = current_time.year
     
+    # DEFINITIVE FIX: Calculate a dynamic rolling 7-day window
+    # This forces the daily endpoints (like MLB) to return the upcoming week of games
+    start_date_str = current_time.strftime("%Y%m%d")
+    end_date_str = (current_time + timedelta(days=7)).strftime("%Y%m%d")
+    
     if league_name in ["nfl", "nba", "mlb", "nhl"]:
+        # We loop through regular and postseason, but explicitly pin the 7-day window
         season_types = [2, 3]
     else:
-        season_types = [1] # UFC Baseline
+        season_types = [2] # UFC Baseline
 
     for s_type in season_types:
         params = {
             "limit": 1000,
             "year": current_year,
-            "seasontype": s_type
+            "seasontype": s_type,
+            "dates": f"{start_date_str}-{end_date_str}" # CONFIRMED: Forces a 7-day rolling window query
         }
         
+        # UFC handles ongoing events natively using the calendar year parameter
         if league_name == "ufc":
             params = {
                 "limit": 1000,
@@ -107,6 +94,7 @@ def fetch_and_build(league_name, url):
         "VERSION:2.0\n"
         f"PRODID:-//CustomSportsCal//{league_name.upper()}//EN\n"
         f"X-WR-CALNAME:{league_name.upper()} Full League\n"
+        f"X-LAST-UPDATED:{current_time.strftime('%Y%m%dT%H%M%SZ')}\n" # Keeps the git diff active
         "REFRESH-INTERVAL;VALUE=DURATION:PT12H\n"
         + "\n".join(ical_events) + "\n"
         "END:VCALENDAR"
@@ -115,7 +103,3 @@ def fetch_and_build(league_name, url):
     with open(f"{league_name}.ics", "w", encoding="utf-8") as f:
         f.write(calendar_content)
     print(f"Successfully compiled {len(ical_events)} unique entries for {league_name.upper()}.")
-
-if __name__ == "__main__":
-    for league, api_url in LEAGUES.items():
-        fetch_and_build(league, api_url)
