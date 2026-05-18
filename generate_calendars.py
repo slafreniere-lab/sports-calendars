@@ -15,20 +15,22 @@ PATHS = {
 LEAGUES = {league: urljoin(BASE_URL, path) for league, path in PATHS.items()}
 
 def format_ical_date(date_str):
-    if "Z" in date_str:
-        date_str = date_str.replace("Z", "")
+    # Fix: Safely split off milliseconds before handling string replacements
     if "." in date_str:
-        date_str = date_str.split(".")
+        date_str = date_str.split(".")[0]
     
-    dt = datetime.strptime(date_str[:16], "%Y-%m-%dT%H:%M")
-    return dt.strftime("%Y%m%dT%H%M%SZ"), dt
+    clean_date = date_str.replace("Z", "")
+    if "+" in clean_date:
+        clean_date = clean_date.split("+")[0]
+        
+    dt = datetime.strptime(clean_date[:16], "%Y-%m-%dT%H:%M")
+    return dt.strftime("%Y%m%dT%H%M00Z"), dt
 
 def fetch_and_build(league_name, url):
     ical_events = []
     current_time = datetime.now()
     current_year = current_time.year
     
-    # FIX: Use a single-request year window to stop ESPN from rate-limiting/blocking your updates
     params = {
         "limit": 1000,
         "dates": f"{current_year}0101-{current_year}1231"
@@ -37,8 +39,8 @@ def fetch_and_build(league_name, url):
     try:
         response = requests.get(url, params=params).json()
         events = response.get("events", [])
-    except Exception:
-        print(f"Skipping {league_name.upper()} - API connection throttled.")
+    except Exception as e:
+        print(f"Connection failure for {league_name.upper()}: {e}")
         return
 
     for event in events:
@@ -54,8 +56,7 @@ def fetch_and_build(league_name, url):
                 
             start_ical, dt_obj = format_ical_date(date_raw)
             
-            # FIX: Skip old games! If the game happened before today, do not write it to the file.
-            # This ensures Homepage's agenda view sees today's games at the very top.
+            # Filter boundary: Skip historical games so Homepage shows today's match at the top
             if dt_obj.date() < current_time.date():
                 continue
 
@@ -89,7 +90,8 @@ def fetch_and_build(league_name, url):
             )
             if ical_event not in ical_events:
                 ical_events.append(ical_event)
-        except Exception:
+        except Exception as e:
+            print(f"Error parsing single event row in {league_name.upper()}: {e}")
             continue
                 
     calendar_content = (
