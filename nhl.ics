@@ -2,15 +2,8 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//CustomSportsCal//NHL//EN
 X-WR-CALNAME:NHL Full League
-X-LAST-UPDATED:20260518T234556Z
+X-LAST-UPDATED:20260519T114245Z
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
-BEGIN:VEVENT
-UID:nhl-401871410
-DTSTART:20260518T233000Z
-DTEND:20260519T023000Z
-SUMMARY:[NHL] Montreal Canadiens at Buffalo Sabres [Check Listings]
-DESCRIPTION:Status: In Progress | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
 BEGIN:VEVENT
 UID:nhl-401872903
 DTSTART:20260521T000000Z
@@ -22,7 +15,7 @@ BEGIN:VEVENT
 UID:nhl-401873383
 DTSTART:20260522T000000Z
 DTEND:20260522T030000Z
-SUMMARY:[NHL] Sabres/Canadiens at Carolina Hurricanes [Check Listings]
+SUMMARY:[NHL] Montreal Canadiens at Carolina Hurricanes [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
@@ -36,7 +29,7 @@ BEGIN:VEVENT
 UID:nhl-401873384
 DTSTART:20260523T230000Z
 DTEND:20260524T020000Z
-SUMMARY:[NHL] Sabres/Canadiens at Carolina Hurricanes [Check Listings]
+SUMMARY:[NHL] Montreal Canadiens at Carolina Hurricanes [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
@@ -50,7 +43,14 @@ BEGIN:VEVENT
 UID:nhl-401873385
 DTSTART:20260526T000000Z
 DTEND:20260526T030000Z
-SUMMARY:[NHL] Carolina Hurricanes at Sabres/Canadiens [Check Listings]
+SUMMARY:[NHL] Carolina Hurricanes at Montreal Canadiens [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:nhl-401872906
+DTSTART:20260527T010000Z
+DTEND:20260527T040000Z
+SUMMARY:[NHL] Colorado Avalanche at Vegas Golden Knights [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 END:VCALENDAR
