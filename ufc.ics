@@ -2,7 +2,7 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//CustomSportsCal//UFC//EN
 X-WR-CALNAME:UFC Full League
-X-LAST-UPDATED:20260714T010659Z
+X-LAST-UPDATED:20260715T010425Z
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 BEGIN:VEVENT
 UID:ufc-600059599
@@ -33,10 +33,24 @@ SUMMARY:[UFC] UFC Fight Night: Gamrot vs Salkilld [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
+UID:ufc-600060732
+DTSTART:20260812T000000Z
+DTEND:20260812T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 1 [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
 UID:ufc-600059185
 DTSTART:20260815T230000Z
 DTEND:20260816T050000Z
 SUMMARY:[UFC] UFC 330: Makhachev vs. Machado Garry [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:ufc-600060733
+DTSTART:20260819T000000Z
+DTEND:20260819T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 2 [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
@@ -47,6 +61,13 @@ SUMMARY:[UFC] UFC Fight Night: Hernandez vs. Rodrigues [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
+UID:ufc-600060734
+DTSTART:20260826T000000Z
+DTEND:20260826T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 3 [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
 UID:ufc-600060620
 DTSTART:20260829T100000Z
 DTEND:20260829T160000Z
@@ -54,10 +75,59 @@ SUMMARY:[UFC] UFC Fight Night: Nurmagomedov vs. Song [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
+UID:ufc-600060735
+DTSTART:20260902T000000Z
+DTEND:20260902T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 4 [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
 UID:ufc-600059993
 DTSTART:20260905T160000Z
 DTEND:20260905T220000Z
 SUMMARY:[UFC] UFC Fight Night: Paris [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:ufc-600060736
+DTSTART:20260909T000000Z
+DTEND:20260909T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 5 [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:ufc-600060737
+DTSTART:20260916T000000Z
+DTEND:20260916T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 6 [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:ufc-600060738
+DTSTART:20260923T000000Z
+DTEND:20260923T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 7 [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:ufc-600060739
+DTSTART:20260930T000000Z
+DTEND:20260930T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 8 [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:ufc-600060740
+DTSTART:20261007T000000Z
+DTEND:20261007T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 9 [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:ufc-600060741
+DTSTART:20261014T000000Z
+DTEND:20261014T060000Z
+SUMMARY:[UFC] Dana White's Contender Series: Season 10, Week 10 [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 END:VCALENDAR
