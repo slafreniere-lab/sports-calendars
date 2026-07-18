@@ -2,111 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//CustomSportsCal//MLB//EN
 X-WR-CALNAME:MLB Full League
-X-LAST-UPDATED:20260717T011700Z
+X-LAST-UPDATED:20260718T010847Z
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 BEGIN:VEVENT
-UID:mlb-401872178
-DTSTART:20260717T173500Z
-DTEND:20260717T213500Z
-SUMMARY:[MLB] Tampa Bay Rays at Boston Red Sox [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816142
-DTSTART:20260717T230500Z
-DTEND:20260718T030500Z
-SUMMARY:[MLB] Los Angeles Dodgers at New York Yankees [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816144
-DTSTART:20260717T231000Z
-DTEND:20260718T031000Z
+UID:mlb-401896568
+DTSTART:20260718T171000Z
+DTEND:20260718T211000Z
 SUMMARY:[MLB] Pittsburgh Pirates at Cleveland Guardians [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816145
-DTSTART:20260717T231000Z
-DTEND:20260718T031000Z
-SUMMARY:[MLB] Tampa Bay Rays at Boston Red Sox [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816141
-DTSTART:20260717T231500Z
-DTEND:20260718T031500Z
-SUMMARY:[MLB] Chicago White Sox at Toronto Blue Jays [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816146
-DTSTART:20260717T231500Z
-DTEND:20260718T031500Z
-SUMMARY:[MLB] Texas Rangers at Atlanta Braves [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816148
-DTSTART:20260717T234000Z
-DTEND:20260718T034000Z
-SUMMARY:[MLB] Miami Marlins at Milwaukee Brewers [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816149
-DTSTART:20260718T000500Z
-DTEND:20260718T040500Z
-SUMMARY:[MLB] Minnesota Twins at Chicago Cubs [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816147
-DTSTART:20260718T001000Z
-DTEND:20260718T041000Z
-SUMMARY:[MLB] Baltimore Orioles at Houston Astros [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816150
-DTSTART:20260718T001000Z
-DTEND:20260718T041000Z
-SUMMARY:[MLB] San Diego Padres at Kansas City Royals [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816151
-DTSTART:20260718T004000Z
-DTEND:20260718T044000Z
-SUMMARY:[MLB] Cincinnati Reds at Colorado Rockies [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816152
-DTSTART:20260718T013800Z
-DTEND:20260718T053800Z
-SUMMARY:[MLB] Detroit Tigers at Los Angeles Angels [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816154
-DTSTART:20260718T014000Z
-DTEND:20260718T054000Z
-SUMMARY:[MLB] St. Louis Cardinals at Arizona Diamondbacks [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816155
-DTSTART:20260718T014000Z
-DTEND:20260718T054000Z
-SUMMARY:[MLB] Washington Nationals at Athletics Athletics [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816153
-DTSTART:20260718T021000Z
-DTEND:20260718T061000Z
-SUMMARY:[MLB] San Francisco Giants at Seattle Mariners [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
@@ -135,13 +37,6 @@ UID:mlb-401816158
 DTSTART:20260718T200500Z
 DTEND:20260719T000500Z
 SUMMARY:[MLB] New York Mets at Philadelphia Phillies [Check Listings]
-DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
-END:VEVENT
-BEGIN:VEVENT
-UID:mlb-401816159
-DTSTART:20260718T201000Z
-DTEND:20260719T001000Z
-SUMMARY:[MLB] Pittsburgh Pirates at Cleveland Guardians [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
@@ -184,6 +79,13 @@ UID:mlb-401816169
 DTSTART:20260718T201000Z
 DTEND:20260719T001000Z
 SUMMARY:[MLB] St. Louis Cardinals at Arizona Diamondbacks [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816159
+DTSTART:20260718T231000Z
+DTEND:20260719T031000Z
+SUMMARY:[MLB] Pittsburgh Pirates at Cleveland Guardians [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 BEGIN:VEVENT
@@ -772,6 +674,111 @@ UID:mlb-401816249
 DTSTART:20260725T021500Z
 DTEND:20260725T061500Z
 SUMMARY:[MLB] Los Angeles Angels at San Francisco Giants [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816254
+DTSTART:20260725T171000Z
+DTEND:20260725T211000Z
+SUMMARY:[MLB] Kansas City Royals at Detroit Tigers [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816250
+DTSTART:20260725T200500Z
+DTEND:20260726T000500Z
+SUMMARY:[MLB] Arizona Diamondbacks at Washington Nationals [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816264
+DTSTART:20260725T200500Z
+DTEND:20260726T000500Z
+SUMMARY:[MLB] Los Angeles Angels at San Francisco Giants [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816257
+DTSTART:20260725T201000Z
+DTEND:20260726T001000Z
+SUMMARY:[MLB] San Diego Padres at Miami Marlins [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816258
+DTSTART:20260725T201000Z
+DTEND:20260726T001000Z
+SUMMARY:[MLB] Toronto Blue Jays at Boston Red Sox [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816256
+DTSTART:20260725T220500Z
+DTEND:20260726T020500Z
+SUMMARY:[MLB] New York Yankees at Philadelphia Phillies [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816253
+DTSTART:20260725T221000Z
+DTEND:20260726T021000Z
+SUMMARY:[MLB] Cleveland Guardians at Tampa Bay Rays [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816252
+DTSTART:20260725T224000Z
+DTEND:20260726T024000Z
+SUMMARY:[MLB] Chicago Cubs at Pittsburgh Pirates [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816251
+DTSTART:20260725T230500Z
+DTEND:20260726T030500Z
+SUMMARY:[MLB] Atlanta Braves at Baltimore Orioles [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816259
+DTSTART:20260725T231000Z
+DTEND:20260726T031000Z
+SUMMARY:[MLB] Athletics Athletics at Minnesota Twins [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816261
+DTSTART:20260725T231000Z
+DTEND:20260726T031000Z
+SUMMARY:[MLB] Colorado Rockies at Milwaukee Brewers [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816262
+DTSTART:20260725T231000Z
+DTEND:20260726T031000Z
+SUMMARY:[MLB] Houston Astros at Chicago White Sox [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816255
+DTSTART:20260725T231500Z
+DTEND:20260726T031500Z
+SUMMARY:[MLB] Los Angeles Dodgers at New York Mets [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816260
+DTSTART:20260725T231500Z
+DTEND:20260726T031500Z
+SUMMARY:[MLB] Cincinnati Reds at St. Louis Cardinals [Check Listings]
+DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
+END:VEVENT
+BEGIN:VEVENT
+UID:mlb-401816263
+DTSTART:20260725T231500Z
+DTEND:20260726T031500Z
+SUMMARY:[MLB] Seattle Mariners at Texas Rangers [Check Listings]
 DESCRIPTION:Status: Scheduled | TV: Check Listings | Sync Source: ESPN API
 END:VEVENT
 END:VCALENDAR
